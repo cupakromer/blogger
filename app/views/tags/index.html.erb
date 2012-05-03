@@ -1,0 +1,7 @@
+<h1>Tags</h1>
+
+<% @tags.each do |tag| %>
+<h3><%= tag.name %></h3>
+<p><%= link_to "delete", tag_path(tag), method: :delete, confirm: "Really delete the tag #{tag.name}?" %></p>
+<%= render partial: 'articles', object: tag.articles %>
+<% end %>
