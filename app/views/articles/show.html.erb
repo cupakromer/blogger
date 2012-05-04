@@ -3,6 +3,7 @@
 <p><%= image_tag @article.image.url if @article.image_file_name %></p>
 <p><%= @article.body %></p>
 
+<% if logged_in? %>
 <p>
   <%= link_to "edit", edit_article_path(@article) %>
 </p>
@@ -10,6 +11,7 @@
 <p>
   <%= link_to "delete", article_path(@article), method: :delete, confirm: "Really delete the article?" %>
 </p>
+<% end %>
 
 <h3>Comments (<%= @article.comments.size %>)</h3>
 <%= render partial: 'comment', collection: @article.comments %>
